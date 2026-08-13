@@ -56,7 +56,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.download_rounded, color: Color(0xFF334155)),
-            tooltip: 'Ekspor CSV',
+            tooltip: 'Ekspor Excel',
             onPressed: () async {
               final provider = context.read<IrrigationProvider>();
               try {

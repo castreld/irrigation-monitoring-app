@@ -139,7 +139,7 @@ class IrrigationProvider extends ChangeNotifier {
   }
 
   Future<void> exportData() async {
-    _exportedPath = await _databaseService.exportLogsToCSV();
+    _exportedPath = await _databaseService.exportLogsToExcel();
   }
 
   Future<void> updateAutomationSettings(AutomationSettings newSettings) async {

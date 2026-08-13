@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:csv/csv.dart';
+import 'package:excel/excel.dart';
 import 'package:path_provider/path_provider.dart';
 import '../models/sensor_data.dart';
 
@@ -61,27 +61,39 @@ class DatabaseService {
     );
   }
 
-  Future<String> exportLogsToCSV() async {
+  Future<String> exportLogsToExcel() async {
     final db = await database;
     final List<Map<String, dynamic>> records = await db.query(
       'sensor_logs',
       orderBy: 'timestamp ASC',
     );
-    final List<List<dynamic>> rows = [];
-    rows.add(['ID', 'Timestamp', 'Temperature', 'Humidity', 'Soil Moisture']);
+
+    final excel = Excel.createExcel();
+    final sheetObject = excel['Sheet1'];
+    sheetObject.appendRow([
+      TextCellValue('ID'),
+      TextCellValue('Timestamp'),
+      TextCellValue('Temperature'),
+      TextCellValue('Humidity'),
+      TextCellValue('Soil Moisture'),
+    ]);
+
     for (final record in records) {
-      rows.add([
-        record['id'],
-        record['timestamp'],
-        record['temperature'],
-        record['humidity'],
-        record['soilMoisture'],
+      sheetObject.appendRow([
+        IntCellValue(record['id'] as int),
+        TextCellValue(record['timestamp'] as String),
+        DoubleCellValue((record['temperature'] as num).toDouble()),
+        DoubleCellValue((record['humidity'] as num).toDouble()),
+        DoubleCellValue((record['soilMoisture'] as num).toDouble()),
       ]);
     }
-    final csvString = Csv().encode(rows);
+
     final directory = await getApplicationDocumentsDirectory();
-    final file = File(join(directory.path, 'irrigation_logs.csv'));
-    await file.writeAsString(csvString);
+    final file = File(join(directory.path, 'irrigation_logs.xlsx'));
+    final fileBytes = excel.save();
+    if (fileBytes != null) {
+      await file.writeAsBytes(fileBytes);
+    }
     return file.path;
   }
 

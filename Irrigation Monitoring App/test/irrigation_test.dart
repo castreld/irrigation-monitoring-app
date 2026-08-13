@@ -28,8 +28,8 @@ class MockDatabaseService extends DatabaseService {
   }
 
   @override
-  Future<String> exportLogsToCSV() async {
-    return 'mock_path/irrigation_logs.csv';
+  Future<String> exportLogsToExcel() async {
+    return 'mock_path/irrigation_logs.xlsx';
   }
 }
 
@@ -228,7 +228,7 @@ void main() {
 
     test('exportData sets exportedPath in provider', () async {
       await provider.exportData();
-      expect(provider.exportedPath, 'mock_path/irrigation_logs.csv');
+      expect(provider.exportedPath, 'mock_path/irrigation_logs.xlsx');
     });
 
     test('fetchStatus updates weather in provider', () async {
