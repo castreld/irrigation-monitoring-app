@@ -1,50 +1,50 @@
-# Smart Farming: Sistem Pemantauan Irigasi Pintar
+# Smart Farming: Smart Irrigation Monitoring System
 
-Proyek ini adalah sistem pemantauan dan otomatisasi irigasi pertanian berbasis Internet of Things (IoT) menggunakan mikrokontroler ESP8266, sensor lingkungan, Blynk Cloud API, dan aplikasi mobile Flutter.
-
----
-
-## Prasyarat Sistem
-
-### Kebutuhan Perangkat Keras
-- Mikrokontroler NodeMCU ESP8266
-- Sensor Suhu & Kelembaban Udara DHT11
-- Sensor Kelembaban Tanah (Soil Moisture Sensor) analog
-- Modul Relay 5V & Pompa Air Solenoid
-- Kabel Jumper & Breadboard
-
-### Kebutuhan Perangkat Lunak
-- Flutter SDK v3.10.7 atau versi terbaru
-- Android Studio / VS Code dengan plugin Flutter
-- Arduino IDE untuk memprogram ESP8266
+This project is an Internet of Things (IoT) based smart agricultural irrigation monitoring and automation system using an ESP8266 microcontroller, environmental sensors, Blynk Cloud API, and a Flutter mobile application.
 
 ---
 
-## Konfigurasi Blynk Cloud Datastream
+## System Prerequisites
 
-Sebelum menjalankan perangkat keras dan aplikasi, konfigurasikan pin virtual berikut pada template Blynk Cloud Anda:
+### Hardware Requirements
+- NodeMCU ESP8266 Microcontroller
+- DHT11 Temperature & Humidity Sensor
+- Analog Soil Moisture Sensor
+- 5V Relay Module & Solenoid Water Pump
+- Jumper Wires & Breadboard
 
-| Pin Virtual | Nama Datastream | Tipe Data | Deskripsi |
+### Software Requirements
+- Flutter SDK v3.10.7 or later
+- Android Studio / VS Code with Flutter plugin
+- Arduino IDE to program the ESP8266
+
+---
+
+## Blynk Cloud Datastream Configuration
+
+Configure the following virtual pins on your Blynk Cloud template before running the hardware and application:
+
+| Virtual Pin | Datastream Name | Data Type | Description |
 |---|---|---|---|
-| V0 | Suhu | Double / Decimal | Nilai suhu lingkungan (°C) |
-| V1 | Kelembaban Udara | Double / Decimal | Kadar kelembaban udara (%) |
-| V2 | Kelembaban Tanah | Double / Decimal | Kadar kelembaban air tanah (%) |
-| V3 | Pompa Air | Integer (0/1) | Status pompa air (0 = Mati, 1 = Menyala) |
-| V4 | Mode Otomatis | Integer (0/1) | Status otomatisasi pompa berdasarkan sensor |
-| V10 - V12 | Jadwal Siklus | String | Waktu eksekusi penyiraman terjadwal |
+| V0 | Temperature | Double / Decimal | Ambient temperature value (°C) |
+| V1 | Humidity | Double / Decimal | Ambient relative humidity value (%) |
+| V2 | Soil Moisture | Double / Decimal | Soil moisture percentage (%) |
+| V3 | Water Pump | Integer (0/1) | Solenoid valve status (0 = Off, 1 = On) |
+| V4 | Auto Mode | Integer (0/1) | Automation status based on soil moisture |
+| V10 - V12 | Schedule | String | Scheduled irrigation execution times |
 
 ---
 
-## Panduan Arduino IDE
+## Arduino IDE Setup
 
-### Pustaka Arduino yang Diperlukan
-Instal pustaka berikut melalui menu **Library Manager** di Arduino IDE sebelum melakukan kompilasi:
-1. **ESP8266WiFi** (Bawaan board ESP8266)
-2. **Blynk** oleh Volodymyr Shymanskyy (v1.3.2+)
-3. **DHT sensor library** oleh Adafruit (v1.4.6+)
-4. **Adafruit Unified Sensor** oleh Adafruit (v1.1.14+)
+### Required Arduino Libraries
+Install the following libraries via the **Library Manager** in the Arduino IDE before compiling:
+1. **ESP8266WiFi** (Built-in with ESP8266 board package)
+2. **Blynk** by Volodymyr Shymanskyy (v1.3.2+)
+3. **DHT sensor library** by Adafruit (v1.4.6+)
+4. **Adafruit Unified Sensor** by Adafruit (v1.1.14+)
 
-### Kode Firmware Arduino ESP8266
+### ESP8266 Arduino Firmware Code
 
 ```cpp
 #define BLYNK_TEMPLATE_ID "TMPLxxxxxx"
@@ -125,12 +125,12 @@ void loop() {
 
 ---
 
-## Alur Kerja Aplikasi Flutter
+## Flutter Application Workflow
 
-### Fitur Utama
-1. **Onboarding & Token Dinamis**: Pengguna memasukkan token autentikasi Blynk saat pertama kali membuka aplikasi. Token disimpan secara persisten di penyimpanan lokal perangkat.
-2. **Dashboard Real-Time**: Polling otomatis data sensor dari cloud setiap 5 detik dengan grafik visual perkiraan cuaca di Lembang, Jawa Barat.
-3. **Kontrol Manual & Otomatisasi**: Sakelar kendali pompa dan mode otomatis terhubung langsung ke pin virtual Blynk.
-4. **Pengaturan Penjadwalan Siklus**: Form dinamis yang menyesuaikan jumlah siklus penyiraman secara kronologis dengan validasi waktu berurutan.
-5. **Analisis Tren & Riwayat**: Grafik tren kelembaban tanah harian menggunakan basis data lokal SQLite.
-6. **Ekspor Laporan CSV**: Konversi riwayat sensor ke file CSV yang dapat dibagikan ke aplikasi eksternal via native sharing sheet.
+### Main Features
+1. **Onboarding & Dynamic Token**: Users enter their Blynk authentication token when launching the app for the first time. The token is persistently saved to local storage via SharedPreferences.
+2. **Real-Time Dashboard**: Automatically polls sensor data from the cloud every 5 seconds, displaying ambient conditions and local weather forecasts for Lembang, West Java.
+3. **Manual Control & Automation**: Solenoid pump triggers and auto-mode statuses are directly linked to Blynk virtual datastreams.
+4. **Dynamic Cycle Settings**: Configures multiple cycle execution times sequentially with chronological validation.
+5. **Analytics & Trends**: Visualizes soil moisture logs over time using a local SQLite database table.
+6. **Excel Spreadsheet Export**: Exports historical logs to a `.xlsx` spreadsheet and triggers a native sharing panel via share_plus.
