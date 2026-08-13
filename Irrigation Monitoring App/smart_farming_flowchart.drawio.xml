@@ -1,0 +1,208 @@
+<mxfile host="Electron" modified="2026-08-13T08:54:00.000Z" agent="Mozilla/5.0" version="21.6.8">
+  <diagram id="diagram_1" name="Smart Farming Flowchart Detail">
+    <mxGraphModel dx="1500" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="100" value="Mulai Aplikasi" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D3E21;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="100" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="101" value="Putar Video assets/splash_screen.mp4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCFCFC;strokeColor=#CBD5E1;fontColor=#0F172A;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="102" value="Apakah Token Terkonfigurasi?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#4C3E1B;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="80" y="250" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="103" value="Buka DeviceSetupScreen (Onboarding)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="100" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="104" value="Input Token &amp; Simpan ke SharedPreferences via StorageService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="100" y="490" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="105" value="Update Token pada RealEspApiService &amp; Putar Ulang Splash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="100" y="600" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="200" value="Buka DashboardScreen (Main UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="340" y="270" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="201" value="Timer Polling Berulang (Setiap 5 Detik)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="340" y="370" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="202" value="RealEspApiService.fetchStatus() (HTTP GET v0-v4)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="345" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="203" value="WeatherService.fetchWeather() (GET Lembang Forecast)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="495" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="204" value="Parse Nilai Sensor &amp; Map Model SensorData" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#4D2220;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="345" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="205" value="DatabaseService.insertLog() (Tulis Log ke SQLite DB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="345" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="206" value="Update State di Provider &amp; Render Tampilan UI Baru" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D3E21;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="345" y="770" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="300" value="Ubah Status Pompa / Mode Otomatis di Switch UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="640" y="270" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="301" value="Kirim HTTP GET Update ke Blynk (v3 / v4)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="640" y="370" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="302" value="Buka Widget Pengaturan Otomatisasi (Siklus)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="800" y="270" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="303" value="Ubah Siklus N &amp; Generate Form List Pickers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="800" y="370" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="304" value="Waktu Siklus Kronologis (Waktu ke-i &gt; ke-(i-1))?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#4C3E1B;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="785" y="470" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="305" value="Batalkan Pilihan &amp; Tampilkan SnackBar Alert Kesalahan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#4D2220;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="990" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="306" value="Kirim Jadwal (V10+) &amp; Simpan ke Blynk Cloud" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="810" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="400" value="Buka Widget Analisis Riwayat (AnalyticsScreen)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="640" y="770" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="401" value="Ambil Riwayat Logs dari Tabel SQLite DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#271C2E;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="640" y="870" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="402" value="Gambar Grafik Tren Kadar Air &amp; Tampilkan Data List" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D3E21;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="640" y="970" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="403" value="Klik Ekspor Data CSV di AppBar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#CCCCCC;fontColor=#333333;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="810" y="770" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="404" value="Encode Baris DB ke CSV via Csv().encode()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="810" y="870" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="405" value="Tulis ke File irrigation_logs.csv via path_provider" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="810" y="970" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="406" value="Buka Share Sheet System via share_plus Share.shareXFiles" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D3E21;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="810" y="1070" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="500" value="ESP8266 Sensor Loop (Suhu, Udara, Kadar Tanah)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#4C3E1B;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="150" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="501" value="Kirim Status ke Blynk Cloud (V0, V1, V2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="250" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="502" value="Apakah Mode Otomatis (autoMode) Aktif?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#4C3E1B;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="350" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="503" value="Nyalakan Pompa jika Kadar Air &lt; 35% &amp; Matikan jika &gt; 65%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#4D2220;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="490" width="140" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="504" value="Listen Virtual Pins (V3, V4, V10-V12) untuk Kontrol &amp; Jadwal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1D3557;fontWeight=bold;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="590" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="600" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="100" target="101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="601" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="101" target="102">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="602" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="102" target="103">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="602_label" value="Tidak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="602" />
+        </mxCell>
+        <mxCell id="603" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="103" target="104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="604" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="104" target="105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="605" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="105" target="101">
+          <mxGeometry relative="1" as="geometry">
+            <Array points="60,635 60,180" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="606" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="102" target="200">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="606_label" value="Ya" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="606" />
+        </mxCell>
+        <mxCell id="607" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="200" target="201">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="608" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="201" target="202">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="609" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="202" target="204">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="610" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="203" target="204">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="611" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="204" target="205">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="612" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="205" target="206">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="613" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="300" target="301">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="614" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="301" target="202">
+          <mxGeometry relative="1" as="geometry">
+            <Array points="705,420 440,420" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="615" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="302" target="303">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="616" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="303" target="304">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="617" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="304" target="305">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="617_label" value="Tidak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="617" />
+        </mxCell>
+        <mxCell id="618" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="304" target="306">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="618_label" value="Ya" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="618" />
+        </mxCell>
+        <mxCell id="619" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="306" target="200">
+          <mxGeometry relative="1" as="geometry">
+            <Array points="870,720 540,720 540,300" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="620" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="400" target="401">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="621" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="401" target="402">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="622" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="403" target="404">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="623" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="404" target="405">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="624" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="405" target="406">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="625" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="500" target="501">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="626" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="501" target="502">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="627" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="502" target="503">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="627_label" value="Ya" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="627" />
+        </mxCell>
+        <mxCell id="628" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;labelBackgroundColor=none;strokeColor=#64748B;" edge="1" parent="1" source="502" target="504">
+          <diGraphGeometry relative="1" as="geometry" />
+          <mxCell id="628_label" value="Tidak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="628" />
+        </mxCell>
+        <mxCell id="629" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748B;" edge="1" parent="1" source="503" target="504">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
