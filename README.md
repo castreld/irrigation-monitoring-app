@@ -105,7 +105,7 @@ BLYNK_WRITE(V4) {
   autoMode = param.asInt() == 1;
 }
 
-                         DEFAULT() {
+BLYNK_WRITE_DEFAULT() {
   int pin = request.pin;
   if (pin >= 10 && pin <= 19) {
     String schedule = param.asStr();
