@@ -31,7 +31,7 @@ Configure the following virtual pins on your Blynk Cloud template before running
 | V2 | Soil Moisture | Double / Decimal | Soil moisture percentage (%) |
 | V3 | Water Pump | Integer (0/1) | Solenoid valve status (0 = Off, 1 = On) |
 | V4 | Auto Mode | Integer (0/1) | Automation status based on soil moisture |
-| V10 - V12 | Schedule | String | Scheduled irrigation execution times |
+| V10 - V19 | Schedule | String | Scheduled irrigation execution times |
 
 ---
 
@@ -105,8 +105,11 @@ BLYNK_WRITE(V4) {
   autoMode = param.asInt() == 1;
 }
 
-BLYNK_WRITE(V10) {
-  String schedule = param.asStr();
+                         DEFAULT() {
+  int pin = request.pin;
+  if (pin >= 10 && pin <= 19) {
+    String schedule = param.asStr();
+  }
 }
 
 void setup() {
